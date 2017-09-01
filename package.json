@@ -11,6 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "jquery": "^3.2.1",
+
+    //
     "aws-sdk": "^2.104.0",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.5",
@@ -24,9 +31,5 @@
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.7.1",
     "webpack-merge": "^4.1.0"
-  },
-  "dependencies": {
-    "express": "^4.15.4",
-    "jquery": "^3.2.1"
   }
 }
