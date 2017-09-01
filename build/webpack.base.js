@@ -1,24 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
+const constants = require('./constants.js');
+
+// plugs
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/client/index.js',
-    random: './src/client/random.js'
+    app: [constants.client, 'index.js'].join('/'),
+    random: [constants.client, 'random.js'].join('/')
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: constants.dist
   },
-
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist'
-  },
-
+  
   // modules
   module: {
     rules: [
@@ -31,7 +27,6 @@ module.exports = {
 
   // plugins
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Generated',
       template: './src/client/index.ejs'
@@ -44,3 +39,4 @@ module.exports = {
     })
   ]
 }
+
