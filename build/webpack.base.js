@@ -7,8 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/client/index.js',
-    random: './src/client/random.js'
+    app: [constants.client, 'index.js'].join('/'),
+    random: [constants.client, 'random.js'].join('/')
   },
   output: {
     filename: '[name].bundle.js',
