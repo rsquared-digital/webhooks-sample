@@ -15,9 +15,7 @@
   },
   "dependencies": {
     "express": "^4.15.4",
-    "jquery": "^3.2.1",
-
-    //
+    "jquery": "^3.2.1", 
     "aws-sdk": "^2.104.0",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.5",
