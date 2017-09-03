@@ -6,9 +6,11 @@ const constants = require('./constants.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = merge(base, {
-  plugins: [
-    new CleanWebpackPlugin(['dist'], { root: constants.root }),
-  ]
-});
-
+module.exports = [
+  merge(base.clientConfig, {
+    plugins: [
+      new CleanWebpackPlugin(['dist'], { root: constants.root }),
+    ]
+  }),
+  base.serverConfig
+];

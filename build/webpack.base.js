@@ -5,7 +5,7 @@ const constants = require('./constants.js');
 // plugs
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+let clientConfig = {
   entry: {
     app: [constants.client, 'index.js'].join('/'),
     random: [constants.client, 'random.js'].join('/')
@@ -38,5 +38,18 @@ module.exports = {
       $: 'jquery'
     })
   ]
-}
+};
+
+let serverConfig = {
+  entry: {
+    server: [constants.server, 'server.js'].join('/')
+  },
+  output: {
+    filename: '[name].js',
+    path: constants.dist
+  },
+  target: 'node'
+};
+
+module.exports = {clientConfig, serverConfig};
 
