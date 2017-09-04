@@ -1,6 +1,10 @@
 import './style.css';
-import random from './random';
+import io from 'socket.io-client';
 
 $(() => {
-  $('#app').append('hello world');
-})
+  let socket = io();
+  let app = $('#app');
+  socket.on('gitEvent', (data) => {
+    console.log(data);
+  });
+});
