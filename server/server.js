@@ -9,8 +9,6 @@ let server = http.createServer(app);
 let io = require('socket.io')(server);
 let port = process.env.PORT || 2403;
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
