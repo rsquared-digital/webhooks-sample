@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 
+const config = require('./build/webpack.base.js')
+
 let app = express();
 let server = http.createServer(app);
 let io = require('socket.io')(server);

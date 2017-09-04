@@ -4,7 +4,7 @@
   "description": "Webhooks sample",
   "scripts": {
     "prestart": "npm run prod",
-    "start": "node ./server/server.js",
+    "start": "node ./server.js",
     "dev": "webpack-dev-server --open --config ./config/webpack.dev.js",
     "prod": "webpack --config ./config/webpack.prod.js"
   },

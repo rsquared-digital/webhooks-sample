@@ -8,7 +8,8 @@ let pluginOpts = {
   comments: false
 };
 
-module.exports = merge(base.clientConfig, {
+module.exports = merge(base, {
   plugins: [
+    new MinifyPlugin({}, pluginOpts)
   ]
 })
