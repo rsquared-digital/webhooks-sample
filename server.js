@@ -3,19 +3,26 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+
+const config = require('./config/webpack.base.js')
 
 let app = express();
+let compiler = webpack(config);
 let server = http.createServer(app);
 let io = require('socket.io')(server);
 let port = process.env.PORT || 2403;
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath
+}));
+app.use(webpackHotMiddleware(compiler));
+
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html')
+  res.sendFile(__dirname + '/.public/index.html')
 });
 
 app.post('/test', function(req, res){
