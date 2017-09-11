@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Webhooks sample",
   "scripts": {
-    "prestart": "node build",
+    "prestart": "npm run build",
     "start": "node ./server.js",
     "build": "webpack --config ./config/webpack.prod.js"
   },
